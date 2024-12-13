@@ -1,6 +1,27 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 import datetime
+from . import models
+
+
+
+def book_detail_view(request, id):
+     if request.method == "GET":
+        book_id = get_object_or_404(models.BookModel, id=id)
+        context = {
+            'book': book_id,
+        }
+        return render(request, template_name='show_detail.html', context=context)
+ 
+
+def book_list_view(request):
+    if request.method == "GET":
+        book_list = models.BookModel.objects.all().order_by('-id')
+
+        context = {
+            'book_list': book_list,
+        }
+        return render(request, template_name='show.html', context=context)
 
 def about_view(request):
     if request.method == "GET":
@@ -21,6 +42,7 @@ def aboutmypets_view(request):
 def time_view(request):
     current_time = datetime.datetime.now()
     return HttpResponse(f"Привет! Это мой первый проект. Текущее время: {current_time}")
-    
 
-    
+def contact_view(request):
+    return render(request, 'contact.html') 
+
