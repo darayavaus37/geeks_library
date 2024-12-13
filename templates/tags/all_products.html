@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<a href="{%url 'child_books'%}">для детей</a>
+<a href="{%url 'elderly_books'%}">для подростков</a>
+<a href="{%url 'teen_books'%}">для молодежи</a>
+<a href="{%url 'youth_books'%}">для пожилых</a>
+
+{%for i in products%}
+
+<p>{{i.name}}</p>
+<p>{{i.price}}</p>
+
+{%endfor%}
+</body>
+</html>
