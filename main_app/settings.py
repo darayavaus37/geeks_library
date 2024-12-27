@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'age_rest_books',
     'basket',
     'parser_app',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -40,6 +41,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'users.middlewares.CheckSpecialistLevelMiddleware',
 ]
 
 ROOT_URLCONF = 'main_app.urls'
@@ -91,6 +93,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+# settings.py
+AUTH_USER_MODEL = "users.CustomUser"
+
 
 
 # Internationalization
