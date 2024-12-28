@@ -9,6 +9,6 @@ urlpatterns = [
     path('photo/',views.image_library_view, name='image_library_view'),
     path('aboutmypets/',views.aboutmypets_view, name='aboutmypets_view'),
     path('time/',views.time_view, name='time_view'),
-    path('contact/', views.contact_view, name='contact_view'),
-
+    path('contact/', views.contact_view, name='contact_view'),  
 ]
+
